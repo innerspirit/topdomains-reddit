@@ -7,7 +7,7 @@ function getSubPosts(sub) {
   return (agent
     .get('http://reddit.com/r/'+sub+'/hot.json')
     .query({ t: 'week', limit: 20 })
-    .set('User-Agent', 'Subfinder bot (by /u/SarasaNews)')
+    .set('User-Agent', 'Top Domains Bot (by /u/SarasaNews)')
     .end()
     .then(function(res) {
     	if (res.body.data.children == "") {
