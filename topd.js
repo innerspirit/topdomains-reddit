@@ -1,7 +1,7 @@
 let request = require('superagent');
 let Promise = this.Promise || require('promise');
 let agent = require('superagent-promise')(request, Promise);
-let subReddit = process.argv[2];
+let entry = process.argv;
 
 function getSubPosts(sub) {
   return (agent
@@ -28,7 +28,7 @@ function getSubPosts(sub) {
 
 //-----------filters-----------
 function selfPost(post) {
-	return post.data.domain !== "self.PHP";
+	return !post.data.domain.startsWith("self.");
 }
 function twitter(post) {
 	return post.data.domain !== "twitter.com";
@@ -37,4 +37,6 @@ function github(post) {
 	return post.data.domain !== "github.com";
 }
 
-getSubPosts(subReddit);
+for (let i = 2; i < entry.length; i++) {
+	getSubPosts(entry[i]);
+}
