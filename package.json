@@ -4,6 +4,7 @@
   "description": "Find the top domains for some subreddits.",
   "main": "topd.js",
   "scripts": {
+    "postversion": "git push && git push --tags && npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +24,8 @@
     "promise": "^7.1.1",
     "superagent": "^3.5.2",
     "superagent-promise": "^1.1.0"
+  },
+  "bin": {
+    "topdomains-reddit": "./run.js"
   }
 }
