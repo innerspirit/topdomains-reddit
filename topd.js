@@ -14,8 +14,7 @@ function getSubPosts(sub) {
         console.log('There is no subreddit with this name')
         return;
       	}
-    	let SelfDomain = res.body.data.children.filter(selfPost);
-    	let cleanDomain = SelfDomain.filter(filterDomains);
+    	let cleanDomain = res.body.data.children.filter(selfPost);
       	for (let i in cleanDomain) {
 	      let domain = cleanDomain[i].data.domain;
 	      console.log(domain);
@@ -25,25 +24,9 @@ function getSubPosts(sub) {
     );
 }
 
-//-----------filters-----------
-
-function filterDomains(post) {
-
-//comparar los items del array y si es igual al domain devuelve falso, si no esta en el array devuelve true
-
-	let array = ["twitter.com", "github.com", "i.redd.it", "i.imgur.com", "imgur.com", "gfycat.com"];
-	for (let i = 0; i < array.length ;i++) {
-		if (post.data.domain === array[i]) {
-			return false;
-		}
-	}
-	return true;
-}
-
 function selfPost(post) {
 	return !post.data.domain.startsWith("self.");
 }
-
 
 for (let i = 2; i < entry.length; i++) {
 	getSubPosts(entry[i]);
