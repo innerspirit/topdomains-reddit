@@ -1,0 +1,27 @@
+{
+  "name": "topdomains-reddit",
+  "version": "0.1.0",
+  "description": "Find the top domains for some subreddits.",
+  "main": "topd.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/innerspirit/topdomains-reddit.git"
+  },
+  "author": "Christian M. Mackeprang <chris@chrismm.com> (https://chrismm.com/)",
+  "contributors": [
+    "Cesar Mackeprang <cesaroach@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/innerspirit/topdomains-reddit/issues"
+  },
+  "homepage": "https://github.com/innerspirit/topdomains-reddit#readme",
+  "dependencies": {
+    "promise": "^7.1.1",
+    "superagent": "^3.5.2",
+    "superagent-promise": "^1.1.0"
+  }
+}
