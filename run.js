@@ -7,5 +7,11 @@ for (var i in subs) {
 }
 
 function logger(res) {
-	console.log(this + ' has these top domains: ' + res.join(','));
+	
+	if (res.length == 0) {
+		console.log(this + ' is not a valid subreddit.')
+	} else {
+		console.log(this + ' has these top domains: ');
+		console.log(res.join('\n'));
+	}
 }

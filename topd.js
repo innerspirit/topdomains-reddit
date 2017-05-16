@@ -12,19 +12,24 @@ function getSubPosts(sub) {
     .end()
     .then(function(res) {
     	if (res.body.data.children == "") {
-        console.log('There is no subreddit with this name')
-        return;
+        return [];
       }
       let cleanDomain = res.body.data.children.filter(selfPost);
+      let allDomains = [];
       for (let i in cleanDomain) {
        let domain = cleanDomain[i].data.domain;
-       console.log(domain);
+       allDomains.push(domain);
       }
+      return allDomains
     })
-    .catch(console.log.bind(console))
+    .catch(error)
   );
 }
 
 function selfPost(post) {
 	return !post.data.domain.startsWith("self.");
+}
+
+function error() {
+  return [];
 }
