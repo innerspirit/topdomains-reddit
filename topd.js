@@ -7,7 +7,7 @@ module.exports = getSubPosts;
 function getSubPosts(sub) {
   return (agent
     .get('http://reddit.com/r/'+sub+'/hot.json')
-    .query({ t: 'week', limit: 20 })
+    .query({ t: 'week', limit: 30 })
     .set('User-Agent', 'Top Domains Bot (by /u/SarasaNews)')
     .end()
     .then(function(res) {
