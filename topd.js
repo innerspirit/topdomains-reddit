@@ -15,12 +15,12 @@ function getSubPosts(sub) {
         return [];
       }
       let cleanDomain = res.body.data.children.filter(selfPost);
-      let allDomains = [];
+      let allDomains = new Set();
       for (let i in cleanDomain) {
        let domain = cleanDomain[i].data.domain;
-       allDomains.push(domain);
+       allDomains.add(domain);
       }
-      return allDomains
+      return Array.from(allDomains)
     })
     .catch(error)
   );
